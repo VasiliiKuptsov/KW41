@@ -36,5 +36,6 @@ class Superjob(Run):
 
 
     def get_request(self):
-        X_Api_App_Id = "4AnW8a8QcKLXKU1UY7neWPYPupYN35XJdRTnSf525nFVQ4oYnF8BSVrGRT1hKzPusP5PS7pJzkDbBZoosSydENe9CUjhCMX"
-        headers = {"X_Api_App_Id":os_environ["SUPERJOB_API_KEY"]}
+        #X-Api-App-Id = "4AnW8a8QcKLXKU1UY7neWPYPupYN35XJdRTnSf525nFVQ4oYnF8BSVrGRT1hKzPusP5PS7pJzkDbBZoosSydENe9CUjhCMX"
+        headers = {"X-Api-App-Id":os_environ["SUPERJOB_API_KEY"]}
+        return requests.get(self.url, headers = headers, params = self.params)
