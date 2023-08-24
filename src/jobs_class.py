@@ -1,4 +1,10 @@
 
+class CountMixin:
+    @property
+
+    def get_count_vacancy(self):
+        pass
+
 
 class Vacancy:
     __slots__ = {"title", "link", "description", "salary"}
@@ -30,9 +36,9 @@ class Vacancy:
 
 
 class HHVacancy(Vacancy, CountMixin):
-    gef __str__(self):
+    def __str__(self):
         return f"HH:{self.title}, зарплата: {self.salary} руб.мес"
 
 class SJVacancy(Vacancy, CountMixin):
-    gef__str__(self):
+    def__str__(self):
         return f"SJ:{self.title}, зарплата: {self.salary} руб.мес"

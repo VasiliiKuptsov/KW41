@@ -5,11 +5,11 @@ def sorting(vacancies:list[Vacancy]) -> list(Vacancy):
     return sorted(vacancies)
 
 
-def get_top (vacancies:list[vacancy], top-count:int) -> list[vacancy]:
+def get_top (vacancies:list[vacancy], top-count:int) -> list(Vacancy):
     return list(sorted(vacancies, reverse=True)[:top_count])
 
 
-def get_hh_vacancies_list(compound) -> list[HHVacancy]:
+def get_hh_vacancies_list(compound) -> list(HHVacancy):
     vacancies = [
         HHVacancy(
             title = vacancy['name'],
