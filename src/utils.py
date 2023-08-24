@@ -1,15 +1,15 @@
 from src.jobs_class import Vacancy, HHVacancy, SJVacancy
 
 
-def sorting(vacancies:list[Vacancy]) -> list(Vacancy):
+def sorting(vacancies:list[Vacancy]):
     return sorted(vacancies)
 
 
-def get_top (vacancies:list[vacancy], top-count:int) -> list(Vacancy):
+def get_top (vacancies:list[Vacancy], top_count:int):
     return list(sorted(vacancies, reverse=True)[:top_count])
 
 
-def get_hh_vacancies_list(compound) -> list(HHVacancy):
+def get_hh_vacancies_list(compound):
     vacancies = [
         HHVacancy(
             title = vacancy['name'],
@@ -20,7 +20,7 @@ def get_hh_vacancies_list(compound) -> list(HHVacancy):
     return vacancies
 
 
-def get_sj_vacancies_list(compound) -> list[SJVacancy]:
+def get_sj_vacancies_list(compound):
     vacancies = [
         SJVacancy(
             title=vacancy['profession'],

@@ -3,7 +3,7 @@ import os
 
 
 
-class Сompound:
+class Compound:
     def __init__(self, path_file):
         self.__data_file = path_file
         self.__compounding()
@@ -21,12 +21,12 @@ class Сompound:
 
 
     def __compounding(self):
-        try:
-            if not os.path.exists(self.__data_file):
-                with open(self.__data_file, 'w') as file:
-                    file.write(json.dumps([]))
-        except FileNotFoundError:
-            raise PathNotFoundError
+        #try:
+            #if not os.path.exists(self.__data_file):
+        with open(self.__data_file, 'w') as file:
+            file.write(json.dumps([]))
+        #except FileNotFoundError:
+            #raise PathNotFoundError
 
     def insert(self,data:list[dict]):
         file_data = self.load_data

@@ -24,11 +24,11 @@ class Vacancy:
         return self.title
 
 
-    def __gt__(self.other):
+    def __gt__(self,other):
         return self.salary > other.salary
 
 
-    def __lt__(self.other):
+    def __lt__(self,other):
         if other.salary in None:
             return False
         if self.salary in None:
@@ -40,5 +40,5 @@ class HHVacancy(Vacancy, CountMixin):
         return f"HH:{self.title}, зарплата: {self.salary} руб.мес"
 
 class SJVacancy(Vacancy, CountMixin):
-    def__str__(self):
+    def __str__(self):
         return f"SJ:{self.title}, зарплата: {self.salary} руб.мес"
