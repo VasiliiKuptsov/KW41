@@ -1,7 +1,13 @@
 import requests.exceptions
 from requests import Response
-from scr.compound import Сompound
+from src.compound import Сompound
+from abc import ABS
 
+
+class Run(ABS):
+    @abstractmethod
+    def get_request(self) -> Response:
+        pass
 
 class MyJsonError(Exception):
     def __init__(self, msg):
@@ -10,13 +16,13 @@ class MyJsonError(Exception):
 class HH(Run):
     def __init__(self, keyword):
         self.url = "https://api.hh.ru/vacancies"
-        self.params = {"text:keyword, "page":page, "per_page":100, "search_field":name}
+        self.params = {"text":keyword, "page":page, "per_page":100, "search_field":name}
 
 
     def get_request(self):
         try:
             request = requests.get(self.url, params = self.params)
-        except requests.exceptions.RequestException as e
+        except requests.exceptions.RequestException as e:
             raise Exception
         else:
             return request

@@ -25,7 +25,7 @@ class Сompound:
             if not os.path.exists(self.__data_file):
                 with open(self.__data_file, 'w') as file:
                     file.write(json.dumps([]))
-        expect FileNotFoundError:
+        except FileNotFoundError:
             raise PathNotFoundError
 
     def insert(self,data:list[dict]):
@@ -49,7 +49,7 @@ class Сompound:
         try:
             with open(self, __data_file, 'r') as file:
                 file_data = json.load(file)
-        expect json.JSONDecoderError as e
+        except json.JSONDecoderError as e:
             raise MyJsonError(str(e))
         else:
             return file_data
