@@ -1,9 +1,5 @@
 
-class CountMixin:
-    @property
-
-    def get_count_vacancy(self):
-        pass
+"""    РАБОТА С ВАКАНСИЯМИ    """
 
 
 class Vacancy:
@@ -28,16 +24,25 @@ class Vacancy:
         return self.salary > other.salary
 
 
+
     def __lt__(self,other):
-        if other.salary in None:
+        if other.salary is None:
             return False
-        if self.salary in None:
+        if self.salary is None:
             return True
+
+
+class CountMixin:
+    @property
+
+    def get_count_vacancy(self):
+        pass
 
 
 class HHVacancy(Vacancy, CountMixin):
     def __str__(self):
         return f"HH:{self.title}, зарплата: {self.salary} руб.мес"
+
 
 class SJVacancy(Vacancy, CountMixin):
     def __str__(self):

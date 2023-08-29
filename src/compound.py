@@ -1,7 +1,7 @@
 import json
 import os
 
-
+"""    РАБОТА С ФАЙЛАМИ ДАННЫХ    """
 
 class Compound:
     def __init__(self, path_file):
@@ -21,37 +21,38 @@ class Compound:
 
 
     def __compounding(self):
-        #try:
-            #if not os.path.exists(self.__data_file):
+
         with open(self.__data_file, 'w') as file:
             file.write(json.dumps([]))
-        #except FileNotFoundError:
-            #raise PathNotFoundError
 
-    def insert(self,data:list[dict]):
-        file_data = self.load_data
+
+    def insert(self, data:list[dict]):
+        file_data = self.load_data()
         new_list = []
-        ids = [v["id"]for v in file_data]
+        ids = []
+
+        for v in file_data:
+            ids.append(v["id"])
+         """ C одинаковым id не пишем  """
         for vacancy in data:
             p = vacancy["id"]
+
             if p not in ids:
                 new_list.append(vacancy)
+
         with open(self.__data_file, 'w') as file:
-            json.dump(file_data + new_list, file, indent=4, ensure_ascii=False)
+            json.dump(file_data + new_list, file, indent=4, ensure_ascii=True)# encodings = 'utf-8')False
 
 
     def select(self, query:dict):
         with open(self.__data_file, 'r') as file:
             file_data = json.load(file)
+            return file_data
 
 
     def load_data(self):
-        try:
-            with open(self, __data_file, 'r') as file:
-                file_data = json.load(file)
-        except json.JSONDecoderError as e:
-            raise MyJsonError(str(e))
-        else:
+        with open(self. __data_file, 'r') as file:
+            file_data = json.load(file)
             return file_data
 
 
