@@ -33,7 +33,8 @@ class Compound:
 
         for v in file_data:
             ids.append(v["id"])
-         """ C одинаковым id не пишем  """
+
+
         for vacancy in data:
             p = vacancy["id"]
 

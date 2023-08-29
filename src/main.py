@@ -8,7 +8,7 @@ import os
 """  ПО ЗАЯВКЕ РАБОТАЕМ С ВАКАНСИЯМИ НН И СУПЕРДЖОБ  """
 
 def main():
-    keyword = 'python'
+    keyword = input(' ВВЕДИТЕ КЛЮЧЕВОЕ СЛОВО   ')
     hh_run = HH(keyword)
     sj_run = Superjob(keyword)
     hh_compound = Compound("hh_vacancies.json")
